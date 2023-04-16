@@ -1,0 +1,61 @@
+{
+  "name": "erc-token-js",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": "clbrge/erc-token-js",
+  "description": "A versatile JavaScript library for handling ERC20 tokens serialization and display, extending the capabilities of Ethers.js.",
+  "author": {
+    "name": "Christophe Le Bars",
+    "email": "<clb@toort.net>"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "mocha --timeout 1000 --async-stack-traces",
+    "prepare": "husky install"
+  },
+  "main": "src/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./src/index.js"
+    }
+  },
+  "prettier": "prettier-config-standard",
+  "dependencies": {
+    "ethers": "^6.3.0"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": [
+    "ethereum",
+    "ethers",
+    "ethersjs",
+    "erc20",
+    "token"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "dotenv": "^16.0.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.7",
+    "prettier-config-standard": "^5.0.0",
+    "release-it": "^15.10.1"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": "prettier --write"
+  }
+}
