@@ -37,7 +37,7 @@ Create a new token from an object:
 
 ```javascript
 const token = Token.from({
-  chainId,
+  chainId: 1,
   address: '0x...',
   name: 'Token Name',
   symbol: 'TKN',
