@@ -64,7 +64,7 @@ const nativeToken = Token.native({
 
 ## Working with `TokenAmount`
 
-### Create a new token amount
+### Create a new token amount
 
 ```javascript
 const amount = TokenAmount.from(token, 123)
@@ -94,7 +94,7 @@ console.log(amountB.toString()) // "USDC 0.01"
 
 In the previous example, both amountA and amountB represent the same value of 1 USDC, but they are created using different approaches. amountA demonstrates the automatic decimals expansion, while amountB shows how to avoid it by providing a BigInt value.
 
-### Perform arithmetic operations on token amounts
+### Perform arithmetic operations on token amounts
 
 ```javascript
 const amountA = TokenAmount.from(token, 3)
@@ -192,7 +192,7 @@ deserializedComplexObject.amount = TokenAmount.from(
 
 This feature allows you to easily work with token data, no matter how you choose to store or transfer it.
 
-## Utility Functions
+## Utility Functions
 
 Expand a number to N decimals:
 
