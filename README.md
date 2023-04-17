@@ -23,15 +23,13 @@ Install the package using npm:
 npm install erc-token-js
 ```
 
-## Usage
-
-### Importing the Library
+## Importing the Library
 
 ```javascript
 import { Token, TokenAmount, expandToNDecimals } from 'erc-token-js'
 ```
 
-### Creating Tokens
+## Creating Tokens
 
 Create a new token from an object:
 
@@ -44,6 +42,19 @@ const token = Token.from({
   decimals: 18
 })
 ```
+
+When creating a Token instance, you need to provide an object with the following properties:
+Mandatory properties
+
+- `chainId`: The chain ID of the Ethereum network the token is on (e.g., 1 for Ethereum Mainnet, 3 for Ropsten, etc.).
+- `address`: The contract address of the ERC20 token on the Ethereum blockchain.
+- `decimals`: The number of decimal places the token uses (e.g., 18 for most ERC20 tokens).
+
+Optional properties
+
+- `name`: The full name of the token (e.g., "Dai Stablecoin").
+- `symbol`: The symbol used to represent the token (e.g., "DAI").
+- `formatSymbol`: A custom symbol used for formatting display purposes (e.g., "Ξ" for Ether). If not provided, the library will use the symbol property instead.
 
 Create a new token from an ethers.js contract:
 
