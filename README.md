@@ -1,10 +1,10 @@
 # `erc-token-js`
 
-erc-token-js is a versatile JavaScript library tailored for handling Ethereum blockchain ERC20 tokens and native tokens, emphasizing serialization, deserialization, and display capabilities. This easy-to-use library streamlines the process of interacting with tokens by offering a user-friendly interface for creating, formatting, and performing arithmetic operations on token amounts.
+`erc-token-js` is a versatile JavaScript library tailored for handling Ethereum blockchain ERC20 tokens and native tokens, emphasizing serialization, deserialization, and display capabilities. This library streamlines the process of interacting with tokens by offering a user-friendly interface for creating, formatting, and performing arithmetic operations on token amounts.
 
-Features:
+**Features:**
 
-- Create Token and TokenAmount instances from various sources, including objects and ethers.js contracts class
+- Create `Token` and `TokenAmount` instances from various sources, including objects and ethers.js contracts class
 - Effortlessly perform arithmetic operations (addition, subtraction, multiplication, and division) on token amounts
 - Intuitive formatting of token amounts for display purposes
 - Easily serialize and deserialize Token and TokenAmount classes in JSON format, ideal for storing data in databases or IPFS
@@ -103,8 +103,6 @@ const amountB = TokenAmount.from(usdc, 10000n) // 1 * 10^4 USDC
 console.log(amountB.toString()) // "USDC 0.01"
 ```
 
-In the previous example, both amountA and amountB represent the same value of 1 USDC, but they are created using different approaches. amountA demonstrates the automatic decimals expansion, while amountB shows how to avoid it by providing a BigInt value.
-
 ### Perform arithmetic operations on token amounts
 
 ```javascript
@@ -134,7 +132,7 @@ const multipliedBySixAlt = amount.mul(BigInt(6))
 console.log(multipliedBySixAlt.toString()) // "USDC 6.00"
 ```
 
-In the previous example, we demonstrate how using 6n or BigInt(6) provides the expected result, while using 6 as the argument would lead to an unintended outcome due to the internal representation of the token amount.
+In the previous example, using 6n or BigInt(6) provides the expected result, while using 6 as the argument would lead to an unintended outcome due to the internal representation of the token amount unless you really want to multiply by six million.
 
 ### Format token amounts for display
 
@@ -144,7 +142,7 @@ const formattedAmount = amount.toString() // '123.00 TKN'
 
 ## Serialization and Deserialization
 
-erc-token-js is designed with easy serialization and deserialization of `Token` and `TokenAmount` instances in mind, making it perfect for storing and retrieving data from databases or IPFS.
+`erc-token-js` is designed with easy serialization and deserialization of `Token` and `TokenAmount` instances in mind, making it perfect for storing and retrieving data from databases or IPFS.
 
 Both `Token` and `TokenAmount` classes can be serialized into JSON and deserialized back into their respective classes effortlessly. This enables you to store token-related data as JSON and recreate the classes with all their functionalities when needed.
 
