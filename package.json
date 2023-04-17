@@ -20,7 +20,8 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "import": "./src/index.js"
+      "import": "./src/index.js",
+      "main": "./src/index.js"
     }
   },
   "prettier": "prettier-config-standard",
