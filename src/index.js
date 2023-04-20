@@ -62,9 +62,13 @@ export class Token {
 
   // return string
   format(number, decimals = this.decimals) {
-    return this.#iformat
-      .format(ethers.formatUnits(number, decimals))
-      .replace('ETH', this.formatSymbol || this.symbol || this.name || '?')
+    const f = Number(ethers.formatUnits(number, decimals))
+    const s = this.formatSymbol || this.symbol || this.name || '?'
+    return f > 0.1
+      ? this.#iformat
+          .format(ethers.formatUnits(number, decimals))
+          .replace('ETH', s)
+      : `${s} ${f}`
   }
 
   // return BigInt

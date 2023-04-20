@@ -157,12 +157,17 @@ describe('TokenERC20Amount', function () {
 })
 
 // TODO
-describe('Misc', function () {
-  it('xxx', async function () {
-    console.log(ethers.formatUnits('1000000000000', 18))
-    const amountA = await TokenAmount.from(usdc, 3)
+xdescribe('Misc', function () {
+  it('big', async function () {
+    const amountA = await TokenAmount.from(usdc, 100000)
+    console.log(amountA.toFloat())
+    console.log(amountA.toString())
+  })
+  it('small', async function () {
+    const amountA = await TokenAmount.from(usdc, 0.00001)
 
     console.log(amountA.toFloat())
+    console.log(amountA.toString())
   })
 })
 
