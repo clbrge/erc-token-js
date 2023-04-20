@@ -67,6 +67,16 @@ export class Token {
     return expandToNDecimals(decimals)(number)
   }
 
+  toJSON() {
+    return {
+      ...this,
+      chainId:
+        typeof this.chainId === 'bigint'
+          ? this.chainId.toString()
+          : this.chainId
+    }
+  }
+
   // if number is decimals
   newAmount(number, decimals) {
     if (number instanceof TokenAmount) {
@@ -178,6 +188,7 @@ export class TokenAmount {
       }
     }
   }
+
   add(any) {
     return toTokenAmount(
       this.number + toTokenAmount(any, this.token).number,
@@ -185,26 +196,33 @@ export class TokenAmount {
     )
   }
 
-  xadd(any) {
-    const other = toTokenAmount(any, this.token)
-    return this.token.newAmount(this.number + other.number)
-  }
-
   sub(any) {
-    const other = toTokenAmount(any, this.token)
-    return this.token.newAmount(this.number - other.number)
+    return toTokenAmount(
+      this.number - toTokenAmount(any, this.token).number,
+      this.token
+    )
   }
 
   mul(any) {
-    const other = toTokenAmount(any, this.token)
-    return this.token.newAmount(this.number * other.number)
+    return toTokenAmount(
+      this.number * toTokenAmount(any, this.token).number,
+      this.token
+    )
   }
 
   div(any) {
-    const other = toTokenAmount(any, this.token)
-    return this.token.newAmount(this.number / other.number)
+    return toTokenAmount(
+      this.number / toTokenAmount(any, this.token).number,
+      this.token
+    )
   }
 
+  lt(any) {
+    return this.number < toTokenAmount(any, this.token).number
+  }
+  lte(any) {
+    return this.number <= toTokenAmount(any, this.token).number
+  }
   eq(any) {
     return this.number === toTokenAmount(any, this.token).number
   }
