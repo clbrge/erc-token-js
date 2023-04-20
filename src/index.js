@@ -55,6 +55,11 @@ export class Token {
     this.formatOptions = formatOptions
   }
 
+  // return number
+  asFloat(number, decimals = this.decimals) {
+    return ethers.formatUnits(number, decimals)
+  }
+
   // return string
   format(number, decimals = this.decimals) {
     return this.#iformat
@@ -165,6 +170,10 @@ export class TokenAmount {
   // TODO use set for tags
   addTag(tag) {
     this.tags = [...this.tags, tag]
+  }
+
+  toFloat() {
+    return this.token.asFloat(this.number)
   }
 
   toFormat() {

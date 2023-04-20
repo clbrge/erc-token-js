@@ -34,7 +34,7 @@ import { Token, TokenAmount, expandToNDecimals } from 'erc-token-js'
 Create a new token from an object:
 
 ```javascript
-const token = Token.from({
+const tknToken = Token.from({
   chainId: 1,
   address: '0x...',
   name: 'Token Name',
@@ -106,8 +106,8 @@ console.log(amountB.toString()) // "USDC 0.01"
 ### Perform arithmetic operations on token amounts
 
 ```javascript
-const amountA = TokenAmount.from(token, 3)
-const amountB = TokenAmount.from(token, 2)
+const amountA = TokenAmount.from(tknToken, 3)
+const amountB = TokenAmount.from(tknToken, 2)
 
 const sum = amountA.add(amountB) // '5.00 TKN'
 const difference = amountA.sub(amountB) // '1.00 TKN'
@@ -137,7 +137,7 @@ In the previous example, using 6n or BigInt(6) provides the expected result, whi
 ### Format token amounts for display
 
 ```javascript
-const formattedAmount = amount.toString() // '123.00 TKN'
+const formattedAmount = amount.toString() // '123.00 USDC'
 ```
 
 ## Serialization and Deserialization
